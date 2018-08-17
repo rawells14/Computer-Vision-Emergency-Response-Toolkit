@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuBtnSelectResults = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBtnNewAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.editParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAlgorithmsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optimizeForViewingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBtnSelectResults = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBtnNewAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOptimizedMode = new System.Windows.Forms.ToolStripMenuItem();
             this.viewingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +61,6 @@
             this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_Info = new System.Windows.Forms.Label();
             this.btnMarkAsViewed = new System.Windows.Forms.Button();
-            this.btnSelectResults = new System.Windows.Forms.Button();
-            this.btnNewAnalysis = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -76,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLegend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,9 +83,9 @@
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 10.75F);
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuOptions,
             this.menuBtnSelectResults,
             this.menuBtnNewAnalysis,
+            this.menuOptions,
             this.menuOptimizedMode,
             this.openImageNewWindow});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -98,6 +95,21 @@
             this.menuStrip.Size = new System.Drawing.Size(1503, 26);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "Menu";
+            // 
+            // menuBtnSelectResults
+            // 
+            this.menuBtnSelectResults.Name = "menuBtnSelectResults";
+            this.menuBtnSelectResults.Size = new System.Drawing.Size(157, 24);
+            this.menuBtnSelectResults.Text = "Select Results Folder";
+            this.menuBtnSelectResults.Click += new System.EventHandler(this.menuBtnSelectResults_Click);
+            // 
+            // menuBtnNewAnalysis
+            // 
+            this.menuBtnNewAnalysis.BackColor = System.Drawing.Color.LightGray;
+            this.menuBtnNewAnalysis.Name = "menuBtnNewAnalysis";
+            this.menuBtnNewAnalysis.Size = new System.Drawing.Size(137, 24);
+            this.menuBtnNewAnalysis.Text = "Run New Analysis";
+            this.menuBtnNewAnalysis.Click += new System.EventHandler(this.menuBtnNewAnalysis_Click);
             // 
             // menuOptions
             // 
@@ -146,25 +158,6 @@
             this.analysisToolStripMenuItem.Text = "Analysis";
             this.analysisToolStripMenuItem.Click += new System.EventHandler(this.analysisToolStripMenuItem_Click);
             // 
-            // menuBtnSelectResults
-            // 
-            this.menuBtnSelectResults.Enabled = false;
-            this.menuBtnSelectResults.Name = "menuBtnSelectResults";
-            this.menuBtnSelectResults.Size = new System.Drawing.Size(157, 24);
-            this.menuBtnSelectResults.Text = "Select Results Folder";
-            this.menuBtnSelectResults.Visible = false;
-            this.menuBtnSelectResults.Click += new System.EventHandler(this.menuBtnSelectResults_Click);
-            // 
-            // menuBtnNewAnalysis
-            // 
-            this.menuBtnNewAnalysis.BackColor = System.Drawing.Color.LightGray;
-            this.menuBtnNewAnalysis.Enabled = false;
-            this.menuBtnNewAnalysis.Name = "menuBtnNewAnalysis";
-            this.menuBtnNewAnalysis.Size = new System.Drawing.Size(137, 24);
-            this.menuBtnNewAnalysis.Text = "Run New Analysis";
-            this.menuBtnNewAnalysis.Visible = false;
-            this.menuBtnNewAnalysis.Click += new System.EventHandler(this.menuBtnNewAnalysis_Click);
-            // 
             // menuOptimizedMode
             // 
             this.menuOptimizedMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -202,15 +195,15 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(1, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1, 5, 1, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(589, 533);
+            this.pictureBox1.Size = new System.Drawing.Size(591, 539);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDoubleClick);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
@@ -218,15 +211,15 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(592, 5);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(1, 5, 1, 1);
+            this.pictureBox2.Location = new System.Drawing.Point(591, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(589, 533);
+            this.pictureBox2.Size = new System.Drawing.Size(591, 539);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDoubleClick);
-            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
             this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
             // 
@@ -317,28 +310,28 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Flag,
             this.Checked,
             this.Image,
             this.Score});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(1185, 3);
             this.dataGridView1.MultiSelect = false;
@@ -363,8 +356,8 @@
             // Checked
             // 
             this.Checked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Checked.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Checked.DefaultCellStyle = dataGridViewCellStyle7;
             this.Checked.FillWeight = 27F;
             this.Checked.HeaderText = "Viewed";
             this.Checked.Name = "Checked";
@@ -372,8 +365,8 @@
             // Image
             // 
             this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Image.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Image.DefaultCellStyle = dataGridViewCellStyle8;
             this.Image.FillWeight = 56F;
             this.Image.HeaderText = "Image";
             this.Image.Name = "Image";
@@ -381,8 +374,8 @@
             // Score
             // 
             this.Score.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Score.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Score.DefaultCellStyle = dataGridViewCellStyle9;
             this.Score.FillWeight = 27F;
             this.Score.HeaderText = "Score";
             this.Score.Name = "Score";
@@ -408,34 +401,6 @@
             this.btnMarkAsViewed.Text = "Mark As Viewed";
             this.btnMarkAsViewed.UseVisualStyleBackColor = true;
             this.btnMarkAsViewed.Click += new System.EventHandler(this.btnMarkAsViewed_Click);
-            // 
-            // btnSelectResults
-            // 
-            this.btnSelectResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectResults.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSelectResults.Location = new System.Drawing.Point(20, 22);
-            this.btnSelectResults.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
-            this.btnSelectResults.Name = "btnSelectResults";
-            this.btnSelectResults.Size = new System.Drawing.Size(254, 32);
-            this.btnSelectResults.TabIndex = 4;
-            this.btnSelectResults.Text = "Select Results Folder";
-            this.btnSelectResults.UseVisualStyleBackColor = true;
-            this.btnSelectResults.Click += new System.EventHandler(this.menuBtnSelectResults_Click);
-            // 
-            // btnNewAnalysis
-            // 
-            this.btnNewAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewAnalysis.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewAnalysis.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnNewAnalysis.Location = new System.Drawing.Point(314, 22);
-            this.btnNewAnalysis.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
-            this.btnNewAnalysis.Name = "btnNewAnalysis";
-            this.btnNewAnalysis.Size = new System.Drawing.Size(255, 32);
-            this.btnNewAnalysis.TabIndex = 5;
-            this.btnNewAnalysis.Text = "Run New Analysis";
-            this.btnNewAnalysis.UseVisualStyleBackColor = true;
-            this.btnNewAnalysis.Click += new System.EventHandler(this.menuBtnNewAnalysis_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -464,8 +429,6 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.btnSelectResults, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnNewAnalysis, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(1);
@@ -549,7 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLegend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -575,8 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem analysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openImageNewWindow;
         private System.Windows.Forms.ToolStripMenuItem menuOptimizedMode;
-        private System.Windows.Forms.Button btnSelectResults;
-        private System.Windows.Forms.Button btnNewAnalysis;
         private System.Windows.Forms.Button btnMarkAsViewed;
         private System.Windows.Forms.ToolStripMenuItem viewingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem analysisToolStripMenuItem1;
